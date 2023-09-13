@@ -31,9 +31,10 @@ docker
 - Quad Flat No-Lead 48, is a type of surface-mount integrated circuit package
 -  It is characterized by having 48 pins arranged in a grid pattern around the perimeter of the package.
 -  QFN packages are popular in electronics manufacturing due to their compact size, good thermal performance, and ease of assembly.
-<br>
 - Block diagram of a processor
+
 ![image](https://github.com/ani171/pes_pd/assets/97838595/effba290-e604-4f84-b915-e3d0036e359b)
+
 1. SDRAM - Synchronous Dynamic Random-Access Memory (SDRAM) is a type of volatile semiconductor memory. ts primary function is to provide high-speed data storage and retrieval capabilities for temporary data storage and quick access by the processor
 2. JTAG - Joint Test Action Group, is a standard interface and protocol used for testing and debugging integrated circuits, including chips and microcontrollers.The primary function of JTAG is to perform boundary scan testing. Boundary scan is a technique used to test the interconnections between the pins of an integrated circuit and detect faults or defects.
 3. UART- Universal Asynchronous Receiver/Transmitter is a common serial communication interface.UART serves as a means for transmitting and receiving serial data between a chip and other external devices.
