@@ -23,10 +23,11 @@ docker
 
 </details>
 
-### Day 1- Inception of opensource EDA, OpenLane and Sky130 PDK
+### Day 1- Inception of opensource EDA, OpenLane, and Sky130 PDK
+
 
 <deatils>
-<summary>Introduction to QFN-48</summary>
+<summary> Introduction to QFN-48</summary>
 
 - Quad Flat No-Lead 48, is a type of surface-mount integrated circuit package
 -  It is characterized by having 48 pins arranged in a grid pattern around the perimeter of the package.
@@ -36,7 +37,7 @@ docker
 ![image](https://github.com/ani171/pes_pd/assets/97838595/effba290-e604-4f84-b915-e3d0036e359b)
 
 1. SDRAM - Synchronous Dynamic Random-Access Memory (SDRAM) is a type of volatile semiconductor memory. ts primary function is to provide high-speed data storage and retrieval capabilities for temporary data storage and quick access by the processor
-2. JTAG - Joint Test Action Group, is a standard interface and protocol used for testing and debugging integrated circuits, including chips and microcontrollers.The primary function of JTAG is to perform boundary scan testing. Boundary scan is a technique used to test the interconnections between the pins of an integrated circuit and detect faults or defects.
+2. JTAG - Joint Test Action Group, is a standard interface and protocol used for testing and debugging integrated circuits, including chips and microcontrollers. The primary function of JTAG is to perform boundary scan testing. Boundary scan is a technique used to test the interconnections between the pins of an integrated circuit and detect faults or defects.
 3. UART- Universal Asynchronous Receiver/Transmitter is a common serial communication interface.UART serves as a means for transmitting and receiving serial data between a chip and other external devices.
 4. GPIO- General-Purpose Input/Output,is a versatile hardware that allows the chips to interact with the external world by providing the ability to read digital signals from external devices and send digital signals to external devices.
 5. I2C- Inter-Integrated Circuit, is a serial communication protocol that is used to connect multiple digital devices together on the same bus.
