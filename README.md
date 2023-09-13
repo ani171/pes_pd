@@ -27,7 +27,7 @@ docker
 
 
 <deatils>
-<summary> Introduction to QFN-48</summary>
+<summary>Introduction to QFN-48</summary>
 
 - Quad Flat No-Lead 48, is a type of surface-mount integrated circuit package
 -  It is characterized by having 48 pins arranged in a grid pattern around the perimeter of the package.
