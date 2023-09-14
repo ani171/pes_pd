@@ -24,10 +24,7 @@ docker
 </details>
 
 ### Day 1- Inception of opensource EDA, OpenLane, and Sky130 PDK
-
-
 <deatils>
-  
 <summary>Introduction to QFN-48</summary>
 
 - Quad Flat No-Lead 48, is a type of surface-mount integrated circuit package
@@ -52,7 +49,7 @@ docker
   - Silicon Die - This is where the actual circuitry, transistors, and electronic components are located. It's the functional core that processes data, performs computations, or manages various tasks based on the chip's design and purpose.
   - Wire Bonds - The silicon die is connected to the package's lead frame using fine wire bonds. These wire bonds provide electrical connections between the die and the external pins.
   - Macros - Predefined, reusable circuit elements or modules that are integrated into the overall chip design.
-  - Foundry IPs- Refers to the intellectual property blocks or design components that are provided by semiconductor foundries to their customers. These Foundry IPs are critical for chip designers, as they provide the basic building blocks necessary to create custom ICs .
+  - Foundry IPs- Refers to the intellectual property blocks or design components that are provided by semiconductor foundries to their customers. These Foundry IPs are critical for chip designers, as they provide the basic building blocks necessary to create custom ICs.
 
 </deatils>
 
@@ -60,7 +57,7 @@ docker
 <summary>RISC-V and software applications to hardware</summary>
 
 ![image](https://github.com/ani171/pes_pd/assets/97838595/e0a7a7fc-72cb-496d-94fb-c64c0f1be6be)
-- HDL language acts a interface between the RISC architecture and the layout. It converts the RTL design into a netlist and synthesizes it.
+- HDL language acts an interface between the RISC architecture and the layout. It converts the RTL design into a netlist and synthesizes it.
 ![image](https://github.com/ani171/pes_pd/assets/97838595/7c0e4892-b24a-4548-8d45-546d34d40fb6)
 Application software ---> System software ---> Hardware
 - System Software converts application software into binary language
