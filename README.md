@@ -71,3 +71,86 @@ Application software ---> System software ---> Hardware
   - The operating system acts on small functions present in C, C++, Java, or any other language codes and gives it to the Compiler which in turn generates the .exe file which has all the Instructions. The .exe file is fed into the assembler, which generates the Machine Language code through which hardware can be implemented.
   
 </details>
+
+<details>
+<summary>SoC Design and OpenLane</summary>
+
+## Requirements for ASIC Design
+![image](https://github.com/ani171/pes_pd/assets/97838595/667dc3c0-bd68-4eb3-9f53-5cb30a854fff)
+
+ ## Simplified RTL to GDSII Flow
+ ![image](https://github.com/ani171/pes_pd/assets/97838595/cf62946c-8489-4021-9644-968b320821b0)
+
+- Synthesis: Synthesis in the context of ASIC (Application-Specific Integrated Circuit) design is a crucial step in the overall ASIC design flow. It involves converting a high-level hardware description language (HDL) representation of a digital design into a gate-level netlist, which consists of logical gates (AND, OR, XOR, etc.) and flip-flops (registers).
+- Floor Planning: Floor planning is the process of determining how the various functional blocks, or modules, of an ASIC will be physically placed on the silicon die. It defines the overall chip's dimensions, the location of key components, and the routing channels for interconnects.
+- Power planning: Power planning, also known as power grid design, is the process of distributing power and ground throughout the ASIC to ensure stable and efficient power delivery. It involves creating a network of power rails and ground connections.
+<br>
+- Global Placement:
+    - Global placement is the initial phase of placement and focuses on finding a rough positioning of the cells on the chip's layout.
+    - It does not specify the exact coordinates but rather provides a high-level allocation of resources.
+
+- Detailed Placement:
+    - Detailed placement follows global placement and focuses on refining the positions of individual cells to achieve precise spatial coordinates.
+    - It determines the exact locations of each cell and ensures that cells are placed according to design constraints and the logical interconnections between them.
+<br>
+- Clock Tree Synthesis: CTS aims to efficiently distribute clock signals to all flip-flops and sequential elements in the design. This ensures that all clocked elements receive a synchronized clock signal, minimizing clock skew (the variation in arrival times of clock signals) and ensuring consistent operation.
+- Signal Routing: This involves the process of connecting various electronic components and interconnecting the signal paths to ensure proper functionality.
+- Global Routing
+    - Global routing focuses on finding a rough path for each signal through the available routing channels to connect the source and destination points.
+    - It doesn't specify the exact path of each wire but rather defines high-level routing structures.
+- Detailed Routing
+    - Detailed routing follows global routing and focuses on refining the exact paths of each signal.
+    - It specifies the specific routing resources (metal layers, vias, etc.) to be used for each net and resolves conflicts.
+<br>
+- Sign-off:
+  - Physical Rules Checking
+      - Design Rules Checking
+      - Layout v/s Schematic
+  - Timing Verification
+      - Static Timing Analysis
+
+## Introduction to OpenLane
+
+OpenLane is designed to democratize the ASIC design process by providing open-source tools and methodologies. It aims to reduce the barriers to entry and enable more people to design custom integrated circuits.
+Clean means:
+  - No LVS Violations
+  - No DRC Violations
+<br>
+- striVe SoC family
+![image](https://github.com/ani171/pes_pd/assets/97838595/9025acfa-77a6-464c-9eb7-e7007a1db4d2)
+- OpenLane ASIC flow
+![image](https://github.com/ani171/pes_pd/assets/97838595/3d60a6dc-7aea-41a4-81e1-bf8bf260b1dd)
+- Design For Test (DFT)
+  1. Scan Insertion
+  2. Automatic Test Pattern Generation (ATPG)
+  3. Test Patterns Compaction
+  4. Fault Coverage
+  5. Fault Simulation
+  
+### Physical Implementation
+
+- Also called automated PnR (Place and Route)
+  - Floor/Power Planning
+  - End Decoupling Capacitors and Tap cell insertion
+  - Placement: Global and Detailed
+  - Post-placement optimization
+  - Clock Tree Synthesis (CTS)
+  - Routing: Global and Detailed
+### Logic Equivalence clock
+
+- Every time the netlist is modified, verification must be performed
+  - CTS modifies the netlist
+  - Post Placement optimizations modify the netlist
+- LEC is used to formally confirm that the function did not change after modifying the netlist
+### Dealing with Antenna rules violations
+
+- When a metal wire segment is fabricated, it can act as an antenna.
+  - Reactive ion etching causes charge to accumulate on the wire.
+  - Transistor gates can be damaged during fabrication.
+- Two solutions:
+  - Bridging attaches a higher layer intermediary
+    - Requires Router awareness 
+  - Add antenna diode cell to leak away charges
+    - Antenna diodes are provided by the SCL
+
+</details>
