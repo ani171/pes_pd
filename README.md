@@ -117,9 +117,13 @@ Clean means:
   - No DRC Violations
 <br>
 - striVe SoC family
+
 ![image](https://github.com/ani171/pes_pd/assets/97838595/9025acfa-77a6-464c-9eb7-e7007a1db4d2)
+
 - OpenLane ASIC flow
+
 ![image](https://github.com/ani171/pes_pd/assets/97838595/3d60a6dc-7aea-41a4-81e1-bf8bf260b1dd)
+
 - Design For Test (DFT)
   1. Scan Insertion
   2. Automatic Test Pattern Generation (ATPG)
@@ -136,6 +140,7 @@ Clean means:
   - Post-placement optimization
   - Clock Tree Synthesis (CTS)
   - Routing: Global and Detailed
+    
 ### Logic Equivalence clock
 
 - Every time the netlist is modified, verification must be performed
