@@ -350,8 +350,7 @@ Given the unit area for each logic gate, we implement this die multiple times on
 magic -T /home/nickson/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged. lef def read picorv32a.floorplan.def &
 ```
 
-![image](https://github.com/ani171/pes_pd/assets/97838595/64d66260-4993-4c30-814c-698747d60b56)
-
+![image](https://github.com/ani171/pes_pd/assets/97838595/9044feaa-e94c-414f-86b4-802fb460c7a6)
 
 - Click "S" to select the layout
 - Click "V" so that the layout will fit the screen
