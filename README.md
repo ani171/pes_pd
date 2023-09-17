@@ -453,3 +453,52 @@ Placement within OpenLANE involves a two-stage process:
 ![image](https://github.com/ani171/pes_pd/assets/97838595/5fb9e674-cffe-41a3-a7bf-8abbd7eaf5f6)
 
 </details>
+
+<details>
+<summary>Cell design and characterization flows</summary>
+
+### Inputs for cell design flow
+
+- The cell design flow involves the systematic creation and enhancement of discrete digital logic cells that constitute a standard cell library. Within these libraries, there exists a collection of pre-designed, characterized, and recyclable components, such as logic gates and flip-flops, fundamental for building integrated circuits. These libraries encompass various essential elements, including PDK, DRC, and LVS rules, SPICE models, as well as user-defined specifications. These user-defined specifications, such as pin placement and gate length parameters, are incorporated into the library by the library developer.
+![image](https://github.com/ani171/pes_pd/assets/97838595/28ef7c44-3535-46f7-a45b-3f99c5f3f5a8)
+![image](https://github.com/ani171/pes_pd/assets/97838595/be1e9c0e-feff-4110-8e49-5f6ed92008ac)
+
+### Circuit Design
+
+- Circuit Design Phase: In this initial phase, we begin by implementing a specific function using a combination of NMOS (N-type Metal-Oxide-Semiconductor) and PMOS (P-type Metal-Oxide-Semiconductor) transistors. Subsequently, we create a network graph that represents the interconnections between these transistors. From this graph, we derive Euler's path, which serves as a crucial aspect of the design. Additionally, we construct a stick diagram that visually represents the physical layout of the circuit based on the graph.
+![image](https://github.com/ani171/pes_pd/assets/97838595/668f9253-50d7-4ab0-9c1d-0dc5fe59353e)
+
+- Layout Design Phase: Following the stick diagram, we proceed with the layout design, adhering to Design Rule Check (DRC) rules to ensure manufacturability. This phase involves accurately converting the stick diagram into a layout that meets the specified DRC constraints. Furthermore, we extract parasitic elements, such as resistances and capacitances, from the layout. This information is then compiled into an extracted spice list.
+![image](https://github.com/ani171/pes_pd/assets/97838595/5f88c636-0802-40f7-af0e-6126dbcfb546)
+![image](https://github.com/ani171/pes_pd/assets/97838595/51e5811f-39af-4b3c-9118-2d7356573c01)
+
+- Characterization Phase: In this step, we focus on characterizing the circuit's performance in terms of timing, noise, and power. We begin by importing the necessary models and technology files. Using this information, we generate an extracted spice netlist that reflects the circuit's behavior. Subsequently, we read subcircuits and integrated power sources into the design. We also apply a stimulus to the characterization setup, introduce required output capacitance loads, and provide the essential simulation commands to thoroughly evaluate the circuit's behavior under various conditions.
+![image](https://github.com/ani171/pes_pd/assets/97838595/4a2c4af9-4a7f-4667-9703-09179ae4ca74)
+
+This process involves transitioning from the initial logical representation of the circuit to its physical layout, ensuring adherence to design rules, extracting parasitic effects, and ultimately characterizing its performance through simulation and analysis.
+- We have the description of this buffer as shown below:
+![image](https://github.com/ani171/pes_pd/assets/97838595/b2490d1e-9190-443b-bb6a-c3bd093f25eb)
+
+- For this, we have spice extracted Netlist basically whatever we have in the Layout buffer that contacts the metal layers, and everything for each element will have a resistance and capacitances we have extracted them all in terms of a spiced Netlist as shown below:
+![image](https://github.com/ani171/pes_pd/assets/97838595/1be3c9ff-c613-4763-a08c-59ba00559250)
+
+- We have the sub-circuit file loaded, it contains the actual PMOS and NMOS models as shown below:
+![image](https://github.com/ani171/pes_pd/assets/97838595/581fcb78-4102-43e1-a0ef-2a26d4b9f99e)
+
+- The industry-standard characterization flow comprises several key steps
+1. Model Reading: The initial step involves reading the models, which are the first files received from the foundry.
+2. Extracted Spice Netlist Reading: Next, we read the extracted spice netlist, which provides an essential representation of the circuit.
+3. Behavior Recognition: In this stage, we identify and characterize the behavior of the buffer or logic gate that has been implemented.
+4. Loaded Subcircuit File Reading: We proceed by reading the loaded subcircuit file to integrate the necessary components.
+5. Power Source Attachment: Essential power sources are attached to the circuit to ensure proper operation.
+6. Stimulus Application: Stimulus is applied to initiate and observe the circuit's response.
+7. Output Capacitance Variation: Output capacitance is adjusted within a specified range to assess circuit performance under different conditions.
+8. Simulation Commands: Crucial simulation commands are provided to simulate and evaluate the circuit.
+- These eight steps are typically consolidated into a configuration file that is input into the characterization software, known as GUNA. GUNA performs comprehensive characterization, generating separate timing, power, noise, and .lib (library) files. As a result, characterization is further subdivided into timing, power, and noise characterization processes.
+
+</details>
+
+<details>
+<summary>General timing charectarization parameters</summary>
+
+</details>
