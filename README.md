@@ -223,16 +223,12 @@ run_floorplan
 <summary>Chip floor planning considerations</summary>
 
 - Utilization factor and aspect ratio
-
 ![image](https://github.com/ani171/pes_pd/assets/97838595/a963ec64-9426-47b0-8cef-01530124a27a)
-
   - Finding W and H
       - we begin with a simple netlist taking two D flip flips, aka launch flop, and the capture flop with a simple combinational logic between them.
-
+        
 ![image](https://github.com/ani171/pes_pd/assets/97838595/b3492954-5341-4029-b374-9f014fea07fe)
-
 Converting it into the physical dimension
-
 ![image](https://github.com/ani171/pes_pd/assets/97838595/cfcbdc66-b508-4366-8c63-bb94a3bbbc49)
 
 Given the unit area for each logic gate, we implement this die multiple times on the silicon wafer to increase the throughput. When we implement the logic into the core, the logic cells occupy 100% of the core, thereby occupying 100% of the core.
