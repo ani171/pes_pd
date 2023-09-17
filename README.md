@@ -1,4 +1,4 @@
-![image](https://github.com/ani171/pes_pd/assets/97838595/659fb183-d02b-4704-91e4-6a3fa2a4627f)![image](https://github.com/ani171/pes_pd/assets/97838595/123bd16f-5183-496c-8eaf-89b98baf2965)![image](https://github.com/ani171/pes_pd/assets/97838595/d5a72a91-21a5-4418-b59b-4440edbe3ca2)![image](https://github.com/ani171/pes_pd/assets/97838595/6d0778ab-08cd-4722-a06a-bb742e495da4)# pes_pd
+# pes_pd
 
 # Advanced Physical Design using openlane & sky130
 
