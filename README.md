@@ -336,10 +336,27 @@ Given the unit area for each logic gate, we implement this die multiple times on
 ![image](https://github.com/ani171/pes_pd/assets/97838595/508c7a63-f3e2-4f10-b8c4-ba26e83600fb)
 ![image](https://github.com/ani171/pes_pd/assets/97838595/814c5f45-93af-4023-b079-d22399ba42cc)
 
-`less floorplan.tcl`
+`less floorplan. tcl`
 
 ![image](https://github.com/ani171/pes_pd/assets/97838595/db903803-925a-4c73-8d14-db665b461479)
 
 `run_floorplan`
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/218fda9b-7838-4c49-9a23-17de9d466730)
+
+### Review floorplan layout in Magic
+
+```
+magic -T /home/nickson/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged. lef def read picorv32a.floorplan.def &
+```
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/64d66260-4993-4c30-814c-698747d60b56)
+
+
+- Click "S" to select the layout
+- Click "V" so that the layout will fit the screen
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/07badb76-347c-4186-9aa7-e839913a6847)
+
 
 </details>
