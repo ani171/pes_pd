@@ -1,4 +1,4 @@
-# pes_pd
+![image](https://github.com/ani171/pes_pd/assets/97838595/659fb183-d02b-4704-91e4-6a3fa2a4627f)![image](https://github.com/ani171/pes_pd/assets/97838595/123bd16f-5183-496c-8eaf-89b98baf2965)![image](https://github.com/ani171/pes_pd/assets/97838595/d5a72a91-21a5-4418-b59b-4440edbe3ca2)![image](https://github.com/ani171/pes_pd/assets/97838595/6d0778ab-08cd-4722-a06a-bb742e495da4)# pes_pd
 
 # Advanced Physical Design using openlane & sky130
 
@@ -356,6 +356,100 @@ magic -T /home/nickson/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 - Click "V" so that the layout will fit the screen
 
 ![image](https://github.com/ani171/pes_pd/assets/97838595/07badb76-347c-4186-9aa7-e839913a6847)
+![image](https://github.com/ani171/pes_pd/assets/97838595/5bf4949d-4416-4eb3-b1d5-4ddc071f8080)
+![image](https://github.com/ani171/pes_pd/assets/97838595/2071fac3-c677-4625-99ab-9d507fa04316)
 
+</details>
+
+<details>
+<summary>Library Binding and Placement</summary>
+
+### Netlist binding
+
+- Placement and Routing
+  - The most important step in placement and routing is to bind the netlist with the physical cells.
+  - Consider the particular netlist with all these Gates and the shape of the gates represents the functionality of the Gates, but in reality, we don't have shapes like the ones shown below we have them in box type with the width and height of the particular cell.
+  - So at the end, we will be having each logic gate with a shape and the preplaced blocks and we will be left out with wires.
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/fa4225f6-3f93-456b-9d4e-22e6c3e10061)
+
+  - These blocks of shape are now present on a shelf known as the Library, The Library contains various types of blocks including these(ex flip flops, AND gate, Or gate, etc)
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/25de1a1f-5821-4362-b7a1-13d3e138dc39)
+
+  - The library also holds the information of each logic gate like delays etc, the library can be classified into 2 types one that holds the shapes and one that holds the information of each logic gate.
+  - The library will have the information on the shape width and height, the delay information of each and every cell, and the required condition of the particular cells.
+  - The library also holds different flavors of the cell it tries to store(ex if the 2 block is an and gate the library also shows another same AND gate but a bit bigger in size, least resistance path than the normal one as its bigger in size thereby being faster compared to the normal one), therefore it has flavors of each and every cell we try to store it in.
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/8390e6e2-e257-48a0-8a2f-29b6d17afe3a)
+
+  - we can pick what we want to use based on our available space on the floorplan.
+  - Therefore in summary library consists of everything it consists of cells, shapes and sizes of the cells, various flavors of the same cells, and the timing and delay information.
+
+- Once we have given proper shape and size and delay information of our cell using the library the next step is to take this cell and place it onto the floorplan, so we have the floorplan, we have the netlist, we have the physical design view of the netlist in form of logic gates.
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/21e7a196-ed5c-4c4c-adb6-6b254b9fdfa3)
+
+- The netlist won't come into the picture as we will be using the Physical view of logic gates though we will be following the connectivity information from the netlist itself.
+
+- How this is done?
+  - The placement stage will make sure that the pre-placed cell locations are not affected and kept as it is and there will be no cells that can be placed in that area.
+  - We now place each of the shape cells from the physical design view of logic gates in a proper manner such that there are no delay constraints, we place them in such a way that they are close to their respective input and output port pins, and we place them close because if FF2 was placed somewhere below and the distance from FF2 to dout1 wud be higher thereby having more timing delay to communicate with the output pin.
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/7cf8f142-03c3-4093-86cf-f0d4bef124d4)
+
+- From above we clearly see that FF1 is placed near to Din1 and FF2 is placed near to Dout1 as they are connected close to each other using the Netlist as reference we fill all the other the same way.
+- we place the 2nd stage of the netlist in the way shown below:
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/299bade4-29ec-41ec-b95c-7e2fdbefb850)
+
+- Here we see that in 2nd stage FF1 is not close to Din2 for and FF1, cell 1, cell 2, FF2 the delay between FF1 and 1 will be very minimal and similarly the delay between 1 and 2 is also minimal, we do this because of some reasons given ahead.
+
+### Optimize placement using estimated wire length and capacitance
+
+- In the 3rd stage placed we see that FF1 needs to be connected to Din3 and FF2 to Dout 3 but the distance between them is huge hence we try to place them diagonally as shown below:
+![image](https://github.com/ani171/pes_pd/assets/97838595/f7f7dc15-e8e7-4933-884c-ed507ca06010)
+
+- Similarly implementing stage 4 is quite tricky as we have pre-placed cells and we can't give FF1 close to Din4 therefore the distance is huge again in stage 4 as there is again a diagonally opposite I/O port for stage 4 on the chip.
+- We place the stage as shown below:
+![image](https://github.com/ani171/pes_pd/assets/97838595/61ce154e-2970-41a6-a272-f944b8b6cc69)
+- Now we try to solve the problems that we encountered while placing these cells, the Solution for these problems is known as Optimized placement.
+
+  - This is the stage where we do estimations where we estimate the wire length, and capacitance and based on that insert repeaters.
+   - Let's consider FF1 of the 2nd stage and din2 we see that the capacitances between them are very huge as its huge length of wire and even the resistance as it depends on the length and length is huge. Therefore the signal delay is high from din2 to FF1 of 2nd stage due to the distance.
+  - We fix this problem by placing a Repeater in between Din2 and FF1 of the 2nd stage to pass on the signal thereby reducing delay and loss of data, therefore whatever is told to Din2 is successfully retained by FF1 of the 2nd stage This is called Signal Integrity.
+<br>
+
+- Repeater: Repeats act as signal buffers that rejuvenate the existing signal, generating a new signal identical to the original one, and transmitting it once more. This strategy involves deploying multiple repeaters to preserve signal quality over extended distances, albeit at the expense of increased area usage, presenting a trade-off.
+- In the 1st stage we don't need any repeaters, Signel Integrity is based on the wire length estimation and calculation.
+- SLEW primarily relies on the capacitor's value; a larger capacitor necessitates a greater charge to fill it, leading to a poorer slew rate. In the second stage, a considerable distance separated Din2 and FF1 from Stage 2, causing the slew rate, which essentially involves transmission, to exceed its limit. This increased difficulty in reaching FF1 necessitates the addition of repeaters, as illustrated below
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/e6fce526-9731-4cdc-b3b7-0bbe4016ed03)
+
+- In the second stage, we have optimized specific logic to eliminate any time delay between components 1 and 2, ensuring seamless signal recreation, as they are all closely positioned. The rationale behind this optimization for FF1, 1, 2, and FF2 of the second stage is our assumption that this stage operates at an exceptionally high speed. Consequently, we have clustered these logic elements in close proximity to achieve a zero-delay transmission from FF1 to FF2, even though they are distanced from their respective ports
+- Stage 3
+![image](https://github.com/ani171/pes_pd/assets/97838595/289d992c-1a2f-4c28-9066-94d2da97c03c)
+
+- Stage 4
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/cbdcd049-da3c-4ff4-99e5-8935c8df9b12)
+
+### Need for libraries and characterization
+
+Libraries and characterization are foundational elements of the IC design process. Libraries provide standardized building blocks that enhance design productivity and reusability, while characterization provides the essential data needed to accurately model and simulate the behavior of these components, ensuring that the final design meets its performance, power, and reliability goals.
+
+### Congestion-aware placement using RePlAce
+
+Placement within OpenLANE involves a two-stage process:
+1. Global Placement: This initial stage focuses on placing the cores without performing legalization. Legalization involves arranging standard cells in standard cell rows, ensuring they are properly abutted with one another, and avoiding any overlaps. The primary goal of global placement is to minimize wire length.
+2. Detailed Placement: This phase can be rephrased as "Detailed placement" occurs after global placement. In this stage, the focus shifts to fine-tuning the placement of standard cells and ensuring all legalization requirements are met. The primary aim here is to optimize the precise arrangement of cells to further enhance circuit performance.
+
+- For global placement, we run the `run_placement` command
+![image](https://github.com/ani171/pes_pd/assets/97838595/70f34a8a-97bb-4a28-a628-eeb3cd76cbb0)
+
+- We see that the hpwl values converge basically the length is reducing.
+- To see the placement in OpenLANE type magic -T with the required file location of the placement file.
+![image](https://github.com/ani171/pes_pd/assets/97838595/6f598cb0-ce44-446d-b16a-ce0c0544d283)
+![image](https://github.com/ani171/pes_pd/assets/97838595/5fb9e674-cffe-41a3-a7bf-8abbd7eaf5f6)
 
 </details>
