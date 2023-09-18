@@ -585,9 +585,25 @@ magic -T sky130A.tech sky130_inv.mag &
 ```
 pwd
 extract all
+ext2spice cthresh 0 rthresh 0
 ext2spice
 ```
 
 ![image](https://github.com/ani171/pes_pd/assets/97838595/b63823c8-1970-467e-a4ee-2adb9add1d96)
+
+- DRC Errors
+  - DRC Errors are issues or violations that occur during the Design Rule Check (DRC) phase in semiconductor design.
+  - These errors indicate instances where the physical layout of a semiconductor device or integrated circuit does not conform to the specified design rules, which are essential for ensuring manufacturability and functionality.
+  - DRC errors must be identified and rectified to produce a design that can be successfully manufactured and operated as intended.
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/8b29961e-4704-4f82-8760-dabcdd1bbf7e)
+
+- SPICE File
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/01b7601c-3b4a-4c34-a323-87a57fbea9fc)
+
+
+
+
 
 </details>
