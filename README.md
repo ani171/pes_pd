@@ -499,6 +499,37 @@ This process involves transitioning from the initial logical representation of t
 </details>
 
 <details>
-<summary>General timing charectarization parameters</summary>
+<summary>General timing characterization parameters</summary>
+- By examining the descriptive image of the buffer during characterization, we gain insights into various threshold points within the waveform. These points are referred to as "Timing Threshold Definitions." Below, you can find the timing thresholds for the depicted image.
+- The output of the waveform looks like this shown below:
+  
+![image](https://github.com/ani171/pes_pd/assets/97838595/c59122ae-54ae-4352-94b4-d20560d13572)
+
+- The waveform presented above is designed to provide insights into the slew rates of the signal. The red graph represents the rising slew, while the blue graph illustrates the falling slew, with distinct high and low values for each. Additionally, similar representations are available for input rise and fall as well as output rise and fall, with the input rise and fall depicted below.
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/587ed7c7-3982-4bd8-aa90-418583f675cf)
+
+- The output rise and fall is shown below:
+![image](https://github.com/ani171/pes_pd/assets/97838595/3865300c-c92a-460d-9063-2d70a2d6a4fb)
+
+- Timing threshold definitions
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/ffbbe4be-4138-40a7-8fba-d40cb45d9405)
+
+- Propagation delay: The time difference between when the transitional input reaches 50% of its final value and when the output reaches 50% of its final value.
+```
+Propagation delay=time(out_fall_thr)-time(in_rise_thr)
+```
+![image](https://github.com/ani171/pes_pd/assets/97838595/afe8aa07-d711-4422-a60d-0a58f4db33c7)
+![image](https://github.com/ani171/pes_pd/assets/97838595/ade0f4eb-d796-4405-94cc-9ef8a12eed0a)
+
+- Transition Time: The time it takes the signal to move between states is the transition time, where the time is measured between 10% and 90% or 20% to 80% of the signal levels.
+```
+Rise transition time = time(slew_high_rise_thr) - time (slew_low_rise_thr)
+```
+```
+Fall transition time = time(slew_high_fall_thr) - time (slew_low_fall_thr)
+```
+![image](https://github.com/ani171/pes_pd/assets/97838595/cb5f8e16-e0f0-476a-a6c6-f20e5094b87f)
 
 </details>
