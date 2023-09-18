@@ -24,6 +24,7 @@ docker
 </details>
 
 ## Day 1- Inception of opensource EDA, OpenLane, and Sky130 PDK
+
 <deatils>
 <summary>Introduction to QFN-48</summary>
 
@@ -567,3 +568,8 @@ magic -T sky130A.tech sky130_inv.mag &
 
 </details>
 
+<details>
+<summary>Inception of Layout A CMOS fabrication process</summary>
+
+
+</details>
