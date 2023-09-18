@@ -500,6 +500,7 @@ This process involves transitioning from the initial logical representation of t
 
 <details>
 <summary>General timing characterization parameters</summary>
+  
 - By examining the descriptive image of the buffer during characterization, we gain insights into various threshold points within the waveform. These points are referred to as "Timing Threshold Definitions." Below, you can find the timing thresholds for the depicted image.
 - The output of the waveform looks like this shown below:
   
