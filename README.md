@@ -52,7 +52,7 @@ docker
   - Macros - Predefined, reusable circuit elements or modules that are integrated into the overall chip design.
   - Foundry IPs- Refers to the intellectual property blocks or design components that are provided by semiconductor foundries to their customers. These Foundry IPs are critical for chip designers, as they provide the basic building blocks necessary to create custom ICs.
 
-</deatils>
+</details>
 
 <details>
 <summary>RISC-V and software applications to hardware</summary>
