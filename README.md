@@ -550,6 +550,12 @@ Fall transition time = time(slew_high_fall_thr) - time (slew_low_fall_thr)
 
 ![image](https://github.com/ani171/pes_pd/assets/97838595/0e024cb4-1a88-4ae1-a83d-f86f987b9e79)
 
+### Lab steps to git clone vsdstdcelldesign
+
+- During this lab session, our task involves utilizing Git to clone document files associated with PMOS and NMOS spice models. Subsequently, upon performing the Git clone operation, a VSD standard cell design file will be generated within OpenLane.
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/0e0352f1-d80c-4768-b32f-9940c4649030)
+![image](https://github.com/ani171/pes_pd/assets/97838595/647c5c12-45d0-4a09-b588-e4482a5666b7)
 
 </details>
 
