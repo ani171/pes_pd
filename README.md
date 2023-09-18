@@ -534,3 +534,22 @@ Fall transition time = time(slew_high_fall_thr) - time (slew_low_fall_thr)
 ![image](https://github.com/ani171/pes_pd/assets/97838595/cb5f8e16-e0f0-476a-a6c6-f20e5094b87f)
 
 </details>
+
+## Day 3 - Design library cell using Magic Layout and ngspice characterization
+
+<details>
+<summary>Labs for CMOS inverter ngspice simulations</summary>
+
+- The IO Placer revision process in Place and Route (PnR) is an iterative workflow, allowing for adjustments to environment variables as needed. One example is the flexibility to modify the pin configuration within the core area, transitioning from an initially evenly distributed placement to an alternative arrangement when necessary.
+![image](https://github.com/ani171/pes_pd/assets/97838595/80426bdf-8c04-4fe3-b43e-93bdabbeab56)
+- Here in the above image we see that all the I/O pins are located at output equidistant of each other.
+- to view the floorplan mode we can go to `floorplan.tcl`
+![image](https://github.com/ani171/pes_pd/assets/97838595/9465ae6a-b61f-489a-b72f-ca078c7e2cf7)
+
+- After making modifications to the run floorplan by changing the mode to 2, the resulting layout features a structure in which the I/O pins are positioned in a stacked configuration, meaning they are arranged vertically, with one pin directly above another. This stacking arrangement can be useful for optimizing space utilization and improving signal routing efficiency in the design.
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/0e024cb4-1a88-4ae1-a83d-f86f987b9e79)
+
+
+</details>
+
