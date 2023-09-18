@@ -58,7 +58,7 @@ docker
 <summary>RISC-V and software applications to hardware</summary>
 
 ![image](https://github.com/ani171/pes_pd/assets/97838595/e0a7a7fc-72cb-496d-94fb-c64c0f1be6be)
-- HDL language acts an interface between the RISC architecture and the layout. It converts the RTL design into a netlist and synthesizes it.
+- HDL language acts as an interface between the RISC architecture and the layout. It converts the RTL design into a netlist and synthesizes it.
 ![image](https://github.com/ani171/pes_pd/assets/97838595/7c0e4892-b24a-4548-8d45-546d34d40fb6)
 Application software ---> System software ---> Hardware
 - System Software converts application software into binary language
@@ -570,6 +570,10 @@ magic -T sky130A.tech sky130_inv.mag &
 
 <details>
 <summary>Inception of Layout A CMOS fabrication process</summary>
+
+### Lab introduction to Sky130 basic layers layout and LEF using inverter
+
+
 
 
 </details>
