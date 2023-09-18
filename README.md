@@ -25,7 +25,7 @@ docker
 
 ## Day 1- Inception of opensource EDA, OpenLane, and Sky130 PDK
 
-<deatils>
+<details>
 <summary>Introduction to QFN-48</summary>
 
 - Quad Flat No-Lead 48, is a type of surface-mount integrated circuit package
