@@ -602,8 +602,14 @@ ext2spice
 
 ![image](https://github.com/ani171/pes_pd/assets/97838595/01b7601c-3b4a-4c34-a323-87a57fbea9fc)
 
+</details>
 
+<details>
+<summary>Sky130 Tech File Labs</summary>
 
+### Lab steps to create the final SPICE deck using Sky130 tech
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/e2b7d6e4-02b6-4335-9b19-89c84c418cfc)
 
 
 </details>
