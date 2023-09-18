@@ -573,7 +573,21 @@ magic -T sky130A.tech sky130_inv.mag &
 
 ### Lab introduction to Sky130 basic layers layout and LEF using inverter
 
+![image](https://github.com/ani171/pes_pd/assets/97838595/647c5c12-45d0-4a09-b588-e4482a5666b7)
 
+- In the depicted image, we are observing the result of running an inverter design in the "magic" software. This inverter includes both PMOS and NMOS transistors with their respective source and drain connections.
+- The colors used in the image, such as red, blue, and green, serve as standard indications for different materials like polysilicon and metal. Each color corresponds to a specific metal layer.
+- It's important to note that what we see in the image represents the physical layout design of the circuit, which is created following specific design rules. These design rules are crucial for ensuring the accuracy and functionality of the layout.
+- The image effectively illustrates how the connections between the PMOS and NMOS transistors are established, including their drain and source connections.
+- Furthermore, the layout design reflects the meticulous adherence to various layers and design rules that are fundamental in the precise construction of the circuit. This adherence ensures that the circuit functions as intended while meeting manufacturing and electrical requirements.
 
+### Lab steps to create std cell layout and extract spice netlist
+```
+pwd
+extract all
+ext2spice
+```
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/b63823c8-1970-467e-a4ee-2adb9add1d96)
 
 </details>
