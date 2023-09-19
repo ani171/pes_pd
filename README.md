@@ -686,9 +686,12 @@ cif see dnwell_missing
 ```
 Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130fd_sc_hd
 ```
+![image](https://github.com/ani171/pes_pd/assets/97838595/c1a74208-320d-45e6-9abc-e3f938eadaa2)
+
 - to use Grid commands type `grid` in tkcon
 - Type the values of x and y
-![image](https://github.com/ani171/pes_pd/assets/97838595/add8bee8-79bf-461a-b72c-8ee83b7e408b)
+![image](https://github.com/ani171/pes_pd/assets/97838595/7ba61730-cc83-4b7d-8c6f-e0ac32858a95)
+![image](https://github.com/ani171/pes_pd/assets/97838595/96987fc5-3a07-49bc-b573-44a26fdf4957)
 
 - 1st numeric column indicates the offset and 2nd indicates the pitch along a provided direction
 
@@ -711,5 +714,34 @@ lef write
 ```
 ![image](https://github.com/ani171/pes_pd/assets/97838595/1885a710-5410-4b8e-840a-f8032bc5d654)
 
-  
+### Timing libs and steps to include new cells in the synthesis
+
+- We copy the lef file created and the sky130 library to the src folder of the picorv32a folder.
+```
+cp sky130_vsdinv.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32/src
+```
+- Modify the config file to include the libraries and lef file
+```
+vim config.tcl
+```
+![image](https://github.com/ani171/pes_pd/assets/97838595/253c03d9-2230-47f1-904f-d766691da6b1)
+
+- In OpenLANE we retrieve the 0.9 package.
+```
+docker
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a -tag 17-09_18-21 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+run_synthesis
+```
+<img width="588" alt="1" src="https://github.com/ani171/pes_pd/assets/97838595/f1a33f21-25cc-4084-b983-a61233de4cbd">
+
+
+
+
+
+
+
 </details>
