@@ -780,5 +780,31 @@ run_synthesis
 
 <details>
 <summary>Clock tree synthesis TritonCTS and signal integrity</summary>
-  
+
+- OpenSTA, an open-source static timing analysis tool, is a widely employed resource in the realm of digital circuit design.
+  - Static Timing Analysis (STA) is a pivotal phase in the design and validation of digital circuits, serving to verify that the circuit complies with its stringent timing constraints.
+  - OpenSTA plays a significant role within the comprehensive OpenROAD open-source RTL-to-GDSII flow, constituting a vital component of this complete ASIC (Application-Specific Integrated Circuit) design environment.
+
+```
+read_lef /openLANE_flow/designs/picorv32a/runs/18-09_06-26/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/18-09_06-26/results/cts/picorv32a.cts.def
+write_db pico_cts.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/18-09_06-26/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty -max $::env(LIB_SLOWEST)
+read_liberty -max $::env(LIB_FASTEST)
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -format full_clock_expanded -digits 4
+```
+![image](https://github.com/ani171/pes_pd/assets/97838595/b861059b-647d-4a16-be5e-d94a8d546741)
+
+</details>
+
+## Day 5- Final steps for RTL2GDS using tritonRoute and openSTA
+
+<details>
+<summary>Routing and design rule check</summary>
+
+
+
 </details>
