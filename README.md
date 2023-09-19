@@ -611,5 +611,61 @@ ext2spice
 
 ![image](https://github.com/ani171/pes_pd/assets/97838595/e2b7d6e4-02b6-4335-9b19-89c84c418cfc)
 
+- ngspice
+![image](https://github.com/ani171/pes_pd/assets/97838595/714f4e74-8efa-4df8-aeb5-3f5bd64e3dc6)
+
+- To get the plot
+`plot y vs time a`
+![image](https://github.com/ani171/pes_pd/assets/97838595/beaae377-8f19-4393-929c-e03fbd088cd9)
+
+### Introduction to Magic tool options and DRC rules
+
+- Magic, a VLSI layout tool, originated in the 1980s at Berkeley under the development of John Ousterhout, who later gained recognition for creating the Tcl scripting language. Its continued popularity among universities and small companies can be attributed, in part, to its open-source Berkeley license. This licensing approach has enabled VLSI engineers with programming skills to introduce innovative ideas and keep magic aligned with the latest fabrication technology.
+- However, what truly sets magic apart and contributes significantly to its popularity are its well-crafted core algorithms. Magic is often lauded as the most user-friendly option for circuit layout, even by those who primarily use commercial tools in their product design workflows.
+- To download the required tech files
+```
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+```
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/62924f00-61a8-476d-8187-5535cc9b39cb)
+
+- Command to open magic
+
+```
+magic -d XR
+```
+![image](https://github.com/ani171/pes_pd/assets/97838595/22f59c74-df7a-459d-a3f3-81c76d5849ac)
+
+- Opening the met3.mag file
+![image](https://github.com/ani171/pes_pd/assets/97838595/0e684d7c-3e50-40ec-b1ed-94bcc0f7e517)
+
+- for contact cuts, using the command `cif see VIA2`, we get
+![image](https://github.com/ani171/pes_pd/assets/97838595/c855e390-b6c1-4f89-be6e-5ffd16a092ef)
+
+### Fixing errors
+- To find errors: Using the mouse select the area in b/w the ploy layers. Use the box command to get the measurement
+![image](https://github.com/ani171/pes_pd/assets/97838595/1c1b469f-0dfa-43f5-8b52-ad3341721b86)
+![image](https://github.com/ani171/pes_pd/assets/97838595/7fece0aa-5e33-4ee7-bd01-5aed146fadcc)
+
+- To fix the error open the sky130A.tech file using an editor and search for poly.9 and make the changes
+![image](https://github.com/ani171/pes_pd/assets/97838595/c2df35a9-c606-4d75-a77f-77cf9e25a6f7)
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/0a448e7d-ff2d-4594-a971-00739a2a7325)
+
+- DRC Check
+![image](https://github.com/ani171/pes_pd/assets/97838595/c4637b05-11fd-4bec-9264-19a733f45540)
+
+### Lab exercise to describe DRC error as a geometrical construct
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/7346d3a7-0283-4c5f-abbe-3d0e7604dbba)
+
+- Type in the following commands in the .main file
+```
+cif ostyle drc
+cif see dnwell_shrink
+cif see dnwell_missing
+```
+![image](https://github.com/ani171/pes_pd/assets/97838595/495e8beb-5ecf-4053-ab11-d28036ca87b6)
+![image](https://github.com/ani171/pes_pd/assets/97838595/501681d9-80f5-42f0-99b6-782b00957b77)
 
 </details>
