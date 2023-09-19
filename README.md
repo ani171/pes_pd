@@ -669,3 +669,47 @@ cif see dnwell_missing
 ![image](https://github.com/ani171/pes_pd/assets/97838595/501681d9-80f5-42f0-99b6-782b00957b77)
 
 </details>
+
+## Day 4- Pre-layout timing analysis and importance of good clock tree
+
+<details>
+<summary>Timing Modelling using Delay Tables</summary>
+
+- In the realm of Place and Route (PnR) activities, we rely on an abstract representation of GDS files produced through Magic. This abstract view, which is formally defined as LEF (Library Exchange Format) information, serves as a critical resource for interconnect routing during PnR.
+- From the perspective of PnR, specific guidelines must be adhered to in order to establish a standard cell set:
+  1. Port Placement: The input and output ports must be strategically positioned at the intersection points of vertical and horizontal tracks. This precise placement ensures efficient connectivity between components within the layout.
+  2. Cell Dimensions: The dimensions of standard cells need to align with certain principles. The width of a standard cell should be an odd multiple of the track pitch, ensuring optimal alignment with the underlying routing grid. Similarly, the cell's height should adhere to odd multiples of the vertical track pitch, promoting congruence with the grid structure.
+
+### To convert grid info to track info
+
+- Go the the following path
+```
+Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130fd_sc_hd
+```
+- to use Grid commands type `grid` in tkcon
+- Type the values of x and y
+![image](https://github.com/ani171/pes_pd/assets/97838595/add8bee8-79bf-461a-b72c-8ee83b7e408b)
+
+- 1st numeric column indicates the offset and 2nd indicates the pitch along a provided direction
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/35bc3bf1-2e9c-4fb8-b948-0303ef91c6f1)
+
+![image](https://github.com/ani171/pes_pd/assets/97838595/e580b5d5-d9cf-415c-9d85-097df1be7c65)
+
+### To convert magic layout to std cell LEF
+
+- To save the modified layout from Magic
+```
+save sky130_vsdinv.mag
+```
+![image](https://github.com/ani171/pes_pd/assets/97838595/d175bdc5-7c7d-416d-8709-41c5869e69c2)
+
+- To generate the LEF file
+```
+magic -T sky130A.tech sky130_vsdinv.mag
+lef write
+```
+![image](https://github.com/ani171/pes_pd/assets/97838595/1885a710-5410-4b8e-840a-f8032bc5d654)
+
+  
+</details>
