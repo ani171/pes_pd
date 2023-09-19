@@ -739,9 +739,46 @@ run_synthesis
 <img width="588" alt="1" src="https://github.com/ani171/pes_pd/assets/97838595/f1a33f21-25cc-4084-b983-a61233de4cbd">
 
 
+</details>
 
+<details>
+<summary>Delay tables and timing analysis with ideal clocks using openSTA</summary>
 
+- Delay tables, commonly known as delay models or delay tables, are vital components in the domain of digital circuit design and analysis. They provide a structured framework for representing and comprehending the intricacies of how signals propagate through logic gates and interconnections within a digital integrated circuit (IC). These tables capture essential information about the time it takes for signals to traverse various circuit components, which is crucial for ensuring that the circuit meets its stringent timing requirements.
+-  Delay tables are instrumental in determining key parameters like setup and hold times. 
+- The primary purposes of delay tables are as follows:
+  - Timing Analysis: They are essential for performing timing analysis, ensuring that signals meet their timing constraints, and identifying potential violations.
+  - Synchronization: They help in synchronizing different parts of a digital system to ensure that data is sampled or latched correctly.
+  - Power Estimation: Delay tables are used for estimating power consumption in digital circuits since power dissipation is directly related to signal transitions.
+-  Delay tables typically include the following components:
+  1. Input Conditions: These conditions specify the input signal values or transitions that trigger the delay calculation. Inputs can include input signal values, load conditions, and transition times.
+  2. Gate Delays: Delay tables include information about the propagation delays of various logic gates, such as AND, OR, NAND, NOR, XOR, and others. These delays depend on the gate's technology, fan-out, and input conditions.
+  3. Interconnect Delays: They account for the delays introduced by the wires and routing between logic gates. Interconnect delays depend on the physical characteristics of the wires, including length, resistance, and capacitance.
+  4. Output Loads: The output load conditions specify the capacitive load that the gate must drive, which affects the output delay.
 
+### Lab steps to configure synthesis settings to fix slack and include vsdinv
 
+- Setup Timing Analysis: Setup timing analysis is a critical aspect of digital circuit design and verification. It focuses on ensuring that data signals meet the required setup time constraints at the inputs of sequential elements (e.g., flip-flops) in a digital system. The primary goal of setup timing analysis is to ensure that data is stable and valid before it is clocked into a flip-flop or other storage elements.
+- Flip-flop setup time: The setup time (Ts) for a flip-flop is a critical parameter that determines when a data input signal must be stable before the arrival of the clock edge to guarantee proper data capture. It is defined as the minimum amount of time the data input must be held at a valid logic level before the active clock edge (e.g., rising edge) for reliable storage.
 
+![2](https://github.com/ani171/pes_pd/assets/97838595/bd63529b-1b24-4472-a5b3-3d60898a577d)
+
+### Clock Jitters and Uncertainty
+- Clock Jitter
+  - Clock jitter pertains to the transient irregularities or oscillations observed in the timing of a clock signal's edges.
+  - This parameter holds significant importance in digital and communication systems due to its potential impact on overall system performance, particularly in high-speed or sensitive contexts.
+  - Clock jitter can be attributed to diverse factors and may manifest as either random or deterministic variations in the timing of the clock signal.
+
+- Clock Uncertainty
+  - Clock uncertainty, alternatively known as clock skew, deals with the discrepancies in the arrival times of clock signals at various locations within a digital system.
+  - Unlike clock jitter, which focuses on short-term variations, clock uncertainty primarily concerns long-term timing inconsistencies.
+  - This phenomenon has the potential to significantly influence system performance and timing accuracy, making it a crucial consideration in digital design.
+  - Clock uncertainty stems from various factors, including delays within the clock distribution network, routing delays, and variations in the lengths of clock paths.
+  - These variations in clock arrival times can lead to synchronization challenges and may require mitigation strategies to ensure reliable system operation.
+
+</details>
+
+<details>
+<summary>Clock tree synthesis TritonCTS and signal integrity</summary>
+  
 </details>
