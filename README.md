@@ -805,6 +805,7 @@ report_checks -path_delay min_max -format full_clock_expanded -digits 4
 <details>
 <summary>Routing and design rule check</summary>
 
+![WhatsApp Image 2023-09-19 at 10 46 40 AM](https://github.com/ani171/pes_pd/assets/97838595/ebf91408-7a10-42a5-bbdb-ced5d0f91558)
 
 
 </details>
