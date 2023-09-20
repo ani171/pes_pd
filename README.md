@@ -800,6 +800,8 @@ report_checks -path_delay min_max -format full_clock_expanded -digits 4
 
 </details>
 
+<details>
+
   <summary> DAY 5 </summary>
 
 ## Power Distribution Network
