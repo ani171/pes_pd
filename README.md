@@ -825,4 +825,3 @@ python3 main.py <path to merged.lef in tmp> <path to def in routing>
 
 </details>
 
-![image](https://github.com/ani171/pes_pd/assets/97838595/8bdaa57f-c95b-481d-af2a-2b0c7dccdd1f)
