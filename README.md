@@ -800,29 +800,71 @@ report_checks -path_delay min_max -format full_clock_expanded -digits 4
 
 </details>
 
-## DAY-5 :- Power Distribution Network
+# Day 5- Final steps for RTL2GDS using tritonRoute and openSTA
+
 <details>
+<summary>Routing and design rule check (DRC)</summary>
 
-<summary> Power Distribution Network </summary>
+### Introduction to Maze routing
+  
+- Maze routing is a method used in electronic design automation (EDA) and integrated circuit (IC) design to determine efficient paths for interconnecting various components, such as logic gates, on a chip's layout. The goal is to find a path through a maze-like grid of obstacles while optimizing for factors like wire length, signal delay, and area utilization.
 
-After generating our clock tree network and verifying post routing STA checks we are ready to generate the power distribution network gen_pdn in OpenLANE. The PDN feature within OpenLANE will create the following - power ring global to the entire core, power halo local to any preplaced cells, power straps to bring power into the center of the chip and power rails for the standard cells.
+- Lee's algorithm, also known as Lee's breadth-first search (BFS) algorithm, is a graph traversal and pathfinding algorithm that is commonly used in maze routing, maze solving, and other grid-based problems. Named after its creator, C. Y. Lee, the algorithm is particularly useful for finding the shortest path between two points in a grid while exploring the grid layer by layer.
 
-It is important to note that the pitch of the metal 1 power rails defines the height of the standard cells.
+## DRC
 
-## Global and Detailed Routing
-OpenLANE uses TritonRoute as the routing engine. We use **run_routing** to get the routed design. 
+- Lambda rules are process-specific design rules used in semiconductor manufacturing to ensure that integrated circuit (IC) layouts adhere to the capabilities and constraints of a particular semiconductor process. These rules are expressed in terms of lambda (λ), a normalized unit of measurement relative to the process technology. Lambda rules can vary between semiconductor foundries and process nodes, but they typically cover various aspects of IC design. Here's a list of common lambda rules and design considerations:
 
-There are 2 stages in routing - global and detailed. Global routing first partitions the chip into routing regions and searches for region-to-region paths for all signal nets. This is followed by detailed routing, which determines the exact tracks and vias of these nets based on their region assignments.
-
-If DRC errors persist after routing, we have 2 options - re-run the routing or manually fix the DRC errors.
-
-## SPEF Extraction
-Once the routing process is finished, you can proceed to extract interconnect parasitics for conducting sign-off post-route STA (Static Timing Analysis). These parasitics are extracted and stored in a SPEF (Standard Parasitic Exchange Format) file. It's important to note that the SPEF extraction tool is currently not integrated into OpenLANE.
-Use the following commands for SPEF extraction.
-```
-cd ~/Desktop/work/tools/SPEFEXTRACTOR
-python3 main.py <path to merged.lef in tmp> <path to def in routing>
-```
+  - Minimum Feature Size: Specifies the minimum allowed width and spacing for features such as transistors, metal tracks, and vias, often expressed as multiples of λ.
+  - Aspect Ratio: Defines the acceptable aspect ratio (width-to-height ratio) for rectangular structures, ensuring manufacturability.
+  - Metal Layer Constraints: Specifies minimum metal track widths, metal-to-metal spacings, and via sizes on metal layers.
+  - Poly Pitch: Defines the minimum pitch (spacing between features) for the poly-silicon (poly) layer, which affects the size of transistors and gates.
+  - Active Area Constraints: Specifies minimum active area dimensions, ensuring that transistors meet process requirements.
+  - Well and Substrate Taps: Covers the placement and size of well and substrate taps for connecting to power and ground planes.
+  - Gate Length: Specifies the minimum gate length for transistors, affecting their performance characteristics.
+  - Contact and Via Rules: Defines the minimum size and spacing of contacts and vias used to connect different layers in the IC.
+  - Local Interconnects: Provides rules for local interconnects, which are used for routing within a cell or macro.
+  - Minimum Metal to Active Spacing: Sets the minimum separation between metal tracks and active areas.
+  - Minimum Metal to Contact Spacing: Specifies the minimum distance between metal tracks and contacts.
 
 </details>
 
+<details>
+
+<summary> Power Distribution Network and routing </summary>
+
+- After generating our clock tree network and verifying post-routing STA checks we are ready to generate the power distribution network gen_pdn in OpenLANE:
+
+![image](https://github.com/JBavitha/pes_pd/assets/142578450/f688bcb0-489c-45de-baef-328e5733920f)
+
+![image](https://github.com/JBavitha/pes_pd/assets/142578450/48d4681c-1765-4b5c-8bf5-1046fa272860)
+
+- Change in DEF
+
+![image](https://github.com/JBavitha/pes_pd/assets/142578450/f8aa5da5-7215-4d34-bf21-bfb770c579ad)
+
+- Run routing
+```run_routing```
+
+![image](https://github.com/JBavitha/pes_pd/assets/142578450/a749e34e-1acf-4435-9add-b3136f71ab63)
+
+- TritonRoute
+
+  - Inputs: .lef, .def, processed route guides
+  - Outputs: Detailed routing solution with optimized ire length and via count.
+  - Constraints: Route guides, connectivity constraints, and design rules. image19
+  - Access Point: on-grid point on the metal layer of the route guide, and is used to connect to lower layer, upper layer segments, pins, and ports.
+  - Access Point Cluster: A union of all APs derived from everything.
+
+**SPEF extraction**
+
+```
+cd Desktop/work/tools/SPEF_Extractor
+```
+- SPEF file is created in
+
+```
+/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-09_19-58/results/routing/
+```
+
+</details>
