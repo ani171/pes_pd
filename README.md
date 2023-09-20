@@ -803,7 +803,7 @@ report_checks -path_delay min_max -format full_clock_expanded -digits 4
 ## DAY-5 :- Power Distribution Network
 <details>
 
-## Power Distribution Network
+<summary> Power Distribution Network </summary>
 After generating our clock tree network and verifying post routing STA checks we are ready to generate the power distribution network **gen_pdn** in OpenLANE. The PDN feature within OpenLANE will create the following - power ring global to the entire core, power halo local to any preplaced cells, power straps to bring power into the center of the chip and power rails for the standard cells.
 
 It is important to note that the pitch of the metal 1 power rails defines the height of the standard cells.
